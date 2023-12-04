@@ -1,17 +1,28 @@
 import react from 'react'
-import {View, Text, Button} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
+import {Button} from 'react-native-paper';
 
 
 
 export default function Home({ navigation }){
     return (
         <View>
-            <Text>Home</Text>
-            <Button
-            title = "Sobre"
-            onPress={() => navigation.navigate('About')}
-            />
+            <Button buttonColor='#191970' mode = "contained" onPress={() => navigation.navigate('About')}>
+                    <Text style={styles.textButtonAbout} >Sobre</Text>
+            </Button>
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    textButtonAbout: {
+        fontSize:20
+
+    }
+
+
+
+})
+
+
 
