@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
+import { Text, View, TextInput, StyleSheet } from 'react-native';
 import {Button} from 'react-native-paper'
 import useFormStore from './FormStore';
 
@@ -34,7 +34,16 @@ export default function RegisterForm(){
         value={formData.senha}
         onChangeText={(text) => updateFormData('senha', text)}
       />
-      <Button title="Cadastrar" onPress={handleSubmit} />
+      <View style={styles.buttonConteiner}>
+          <Button 
+                style={styles.styleButton}
+                title="Cadastrar"
+                mode='contained'
+                buttonColor='#228B22'
+                onPress={handleSubmit}>
+                <Text style={styles.textButtonRegi}>Cadastrar</Text>
+          </Button>
+       </View>
     </View>
   );
 };
@@ -42,6 +51,8 @@ export default function RegisterForm(){
 const styles = StyleSheet.create({
   container: {
     padding: 16,
+    paddingBottom:100
+
   },
   input: {
     height: 40,
@@ -49,6 +60,28 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 12,
     paddingHorizontal: 8,
+    borderRadius:10
   },
+  styleButton:{
+      width:400,
+      height:50,
+      borderRadius:10,
+      alignItems:'center',
+      
+      
+  },
+  buttonConteiner:{
+    alignItems:'center',
+    paddingTop:30,
+    
+  },
+  
+    textButtonRegi: {
+      fontSize:20,
+      
+
+  }
+    
+  
 });
 
