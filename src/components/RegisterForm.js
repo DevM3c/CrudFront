@@ -1,14 +1,18 @@
 import React from 'react';
 import { Text, View, TextInput, StyleSheet } from 'react-native';
-import {Button} from 'react-native-paper'
+import {Button} from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native';
 import useFormStore from './FormStore';
+
 
 export default function RegisterForm(){
   const { formData, updateFormData, resetFormData } = useFormStore();
+  const navigation = useNavigation();
 
   const handleSubmit = () => {
     // Lógica para enviar os dados do formulário
     console.log('Dados enviados:', formData);
+    
     // Reiniciar o formulário após o envio
     resetFormData();
   };
@@ -37,13 +41,22 @@ export default function RegisterForm(){
       <View style={styles.buttonConteiner}>
           <Button 
                 style={styles.styleButton}
-                title="Cadastrar"
                 mode='contained'
                 buttonColor='#228B22'
                 onPress={handleSubmit}>
                 <Text style={styles.textButtonRegi}>Cadastrar</Text>
           </Button>
+          
        </View>
+       <View style={styles.buttonConteiner}>
+          <Button
+                style={styles.styleButton2}
+                mode='contained'
+                buttonColor='#228B22'
+                onPress={() => navigation.navigate('Login')}>
+                <Text style={styles.textButtonRegi}>Fazer Login</Text>
+                </Button>
+          </View>
     </View>
   );
 };
@@ -63,21 +76,31 @@ const styles = StyleSheet.create({
     borderRadius:10
   },
   styleButton:{
-      width:400,
+      width:410,
       height:50,
       borderRadius:10,
-      alignItems:'center',
+      justifyContent:'center'
       
       
   },
+  styleButton2:{
+    width:410,
+    height:50,
+    borderRadius:10,
+    justifyContent:'center'
+    
+    
+    
+},
   buttonConteiner:{
-    alignItems:'center',
-    paddingTop:30,
+    alignItems:'column',
+    paddingTop:20
     
   },
   
     textButtonRegi: {
       fontSize:20,
+      
       
 
   }

@@ -6,7 +6,7 @@ const instance = axios.create({
     headers: {
         "X-Parse-Application-Id: KbeapEUFRAs0oZbs4r30aaN6HoGvUsrSsax6xVyn",
         "X-Parse-REST-API-Key: cCzA5nPTpxK2LZnuJePgyLWwPIMao2ajVnXO7e4q",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
     },
 });
 

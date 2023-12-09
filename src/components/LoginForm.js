@@ -1,14 +1,23 @@
 import React from 'react';
 import { Text, View, TextInput, StyleSheet } from 'react-native';
 import {Button} from 'react-native-paper'
+import useFormStore from './FormStore';
 
 
-export default function LoginForm({navigation}){
+export default function LoginForm(){
+    const { formData, updateFormData, resetFormData } = useFormStore();
 
+    const handleSubmit = () => {
+      // Lógica para enviar os dados do formulário
+      console.log('Dados enviados:', formData);
+      
+      // Reiniciar o formulário após o envio
+      resetFormData();
+    };
 
 
     return(
-        <View>
+        <View style={styles.container}>
             <TextInput
         style={styles.input}
         placeholder="Email"
@@ -29,7 +38,7 @@ export default function LoginForm({navigation}){
                 title="Cadastrar"
                 mode='contained'
                 buttonColor='#228B22'
-                onPress={() => navigation.navigate('About')}>
+                onPress={(handleSubmit)}>
                 <Text style={styles.textButtonRegi}>Logar</Text>
           </Button>
         </View>
@@ -42,7 +51,9 @@ export default function LoginForm({navigation}){
 const styles = StyleSheet.create({
     container: {
       padding: 16,
-      paddingBottom:100
+      paddingBottom:100,
+      
+      
   
     },
     input: {
